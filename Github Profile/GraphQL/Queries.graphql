@@ -1,0 +1,62 @@
+query SpecificGitProfile {
+  user(login: "AnujAroshA") {
+    avatarUrl
+    name
+    login
+    email
+    followers {
+      totalCount
+    }
+    following {
+      totalCount
+    }
+    pinnedItems(first: 3, types: REPOSITORY) {
+      totalCount
+      nodes {
+        ... on Repository {
+          name
+          description
+          stargazerCount
+          languages(first: 1) {
+            nodes {
+              name
+              color
+            }
+          }
+        }
+      }
+    }
+    topRepositories(first: 10, orderBy: {field: CREATED_AT, direction: DESC}) {
+      totalCount
+      nodes {
+        ... on Repository {
+          name
+          description
+          stargazerCount
+          languages(first: 1) {
+            nodes {
+              name
+              color
+            }
+          }
+        }
+      }
+    }
+    starredRepositories(first: 10, orderBy: {field: STARRED_AT, direction: DESC}) {
+      totalCount
+      nodes {
+        ... on Repository {
+          name
+          description
+          stargazerCount
+          languages(first: 1) {
+            nodes {
+              name
+              color
+            }
+          }
+        }
+      }
+    }
+  }
+}
