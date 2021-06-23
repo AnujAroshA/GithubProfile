@@ -30,6 +30,7 @@
 		63722D7A2678221B0078DCB4 /* Queries.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 63722D772678221B0078DCB4 /* Queries.graphql */; };
 		63810E00267CAAC000B86FD5 /* UrlImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63810DFF267CAAC000B86FD5 /* UrlImageModel.swift */; };
 		63810E0B267CBE3300B86FD5 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63810E0A267CBE3300B86FD5 /* ImageCache.swift */; };
+		63B2C31A2682B6B800955720 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B2C3192682B6B800955720 /* SectionHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		63722D772678221B0078DCB4 /* Queries.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Queries.graphql; sourceTree = "<group>"; };
 		63810DFF267CAAC000B86FD5 /* UrlImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlImageModel.swift; sourceTree = "<group>"; };
 		63810E0A267CBE3300B86FD5 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		63B2C3192682B6B800955720 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				635466242679EC2C007B98CD /* ContentViewModel.swift */,
 				635466172679D41A007B98CD /* ProfileHeaderView.swift */,
 				6354662C267A00C4007B98CD /* ProfileHeaderViewModel.swift */,
+				63B2C3192682B6B800955720 /* SectionHeaderView.swift */,
 			);
 			path = VVM;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				6354662D267A00C4007B98CD /* ProfileHeaderViewModel.swift in Sources */,
 				635466202679D6B9007B98CD /* CardView.swift in Sources */,
 				636F1708267809F100DC6383 /* Github_ProfileApp.swift in Sources */,
+				63B2C31A2682B6B800955720 /* SectionHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

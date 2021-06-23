@@ -11,13 +11,18 @@ struct ContentView: View {
     
     @StateObject var contentViewModel = ContentViewModel()
     
+    init() {
+        UITableView.appearance().backgroundColor = .clear
+        UITableView.appearance().separatorColor = .clear
+    }
+    
     var body: some View {
         
         Form {
             
             ProfileHeaderView(contentViewModel: contentViewModel, urlImageModel: UrlImageModel(urlString: contentViewModel.gitUser.avatarUrl))
             
-            Section (header: Text(contentViewModel.pinnedSectionHeader)) {
+            Section (header: SectionHeaderView(sectionHeader: contentViewModel.pinnedSectionHeader)) {
                 List {
                     ForEach(0..<contentViewModel.gitUser.visiblePinnedItems, id: \.self) {item in
                         let pinnedItemNode = contentViewModel.gitUser.pinnedItems[item] as! Github_Profile.SpecificGitProfileQuery.Data.User.PinnedItem.Node
@@ -25,8 +30,10 @@ struct ContentView: View {
                     }
                 }
             }
+            .textCase(nil)
+            .foregroundColor(.black)
             
-            Section (header: Text(contentViewModel.topReposSectionHeader)) {
+            Section (header: SectionHeaderView(sectionHeader: contentViewModel.topReposSectionHeader)) {
                 ScrollView (.horizontal) {
                     HStack(spacing: 20) {
                         ForEach(0..<contentViewModel.gitUser.visibleTopStoriesItems, id: \.self) {item in
@@ -36,8 +43,10 @@ struct ContentView: View {
                     }
                 }
             }
+            .textCase(nil)
+            .foregroundColor(.black)
             
-            Section (header: Text(contentViewModel.starredSectionHeader)) {
+            Section (header: SectionHeaderView(sectionHeader: contentViewModel.starredSectionHeader)) {
                 ScrollView (.horizontal) {
                     HStack(spacing: 20) {
                         ForEach(0..<contentViewModel.gitUser.visibleStarredRepoItems, id: \.self) {item in
@@ -47,7 +56,10 @@ struct ContentView: View {
                     }
                 }
             }
+            .textCase(nil)
+            .foregroundColor(.black)
         }
+        .background(Color.white)
         .onAppear(perform: {
             contentViewModel.fetchDataFromGrapQL()
         })
