@@ -54,6 +54,9 @@ struct CardView: View {
             }
             .padding(.all)
         }
+        .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+        .border(Color.gray, width: 1)
+        .cornerRadius(3.0)
     }
 }
 
