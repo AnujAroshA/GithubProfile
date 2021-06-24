@@ -21,17 +21,20 @@ struct ContentView: View {
         Form {
             
             ProfileHeaderView(contentViewModel: contentViewModel, urlImageModel: UrlImageModel(urlString: contentViewModel.gitUser.avatarUrl))
+                .listRowInsets(EdgeInsets())
             
             Section (header: SectionHeaderView(sectionHeader: contentViewModel.pinnedSectionHeader)) {
                 List {
                     ForEach(0..<contentViewModel.gitUser.visiblePinnedItems, id: \.self) {item in
                         let pinnedItemNode = contentViewModel.gitUser.pinnedItems[item] as! Github_Profile.SpecificGitProfileQuery.Data.User.PinnedItem.Node
                         CardView(pinnedItemNode: pinnedItemNode, contentViewModel: contentViewModel, urlImageModel: UrlImageModel(urlString: contentViewModel.gitUser.avatarUrl))
+                            .padding([.bottom])
                     }
                 }
             }
             .textCase(nil)
             .foregroundColor(.black)
+            .listRowInsets(EdgeInsets())
             
             Section (header: SectionHeaderView(sectionHeader: contentViewModel.topReposSectionHeader)) {
                 ScrollView (.horizontal) {
@@ -39,12 +42,14 @@ struct ContentView: View {
                         ForEach(0..<contentViewModel.gitUser.visibleTopStoriesItems, id: \.self) {item in
                             let topStoriesItemNode = contentViewModel.gitUser.topStoriesItems[item] as! Github_Profile.SpecificGitProfileQuery.Data.User.TopRepository.Node
                             CardView(topStoriesItemNode: topStoriesItemNode, contentViewModel: contentViewModel, urlImageModel: UrlImageModel(urlString: contentViewModel.gitUser.avatarUrl))
+                                .frame(maxWidth: contentViewModel.maxCardWidth)
                         }
                     }
                 }
             }
             .textCase(nil)
             .foregroundColor(.black)
+            .listRowInsets(EdgeInsets())
             
             Section (header: SectionHeaderView(sectionHeader: contentViewModel.starredSectionHeader)) {
                 ScrollView (.horizontal) {
@@ -52,12 +57,14 @@ struct ContentView: View {
                         ForEach(0..<contentViewModel.gitUser.visibleStarredRepoItems, id: \.self) {item in
                             let starredRepoItemNode = contentViewModel.gitUser.starredRepoItems[item] as! Github_Profile.SpecificGitProfileQuery.Data.User.StarredRepository.Node
                             CardView(starRepoItemNode: starredRepoItemNode, contentViewModel: contentViewModel, urlImageModel: UrlImageModel(urlString: contentViewModel.gitUser.avatarUrl))
+                                .frame(maxWidth: contentViewModel.maxCardWidth)
                         }
                     }
                 }
             }
             .textCase(nil)
             .foregroundColor(.black)
+            .listRowInsets(EdgeInsets())
         }
         .background(Color.white)
         .onAppear(perform: {

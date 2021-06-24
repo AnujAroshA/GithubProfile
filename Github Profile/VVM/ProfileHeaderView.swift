@@ -23,7 +23,6 @@ struct ProfileHeaderView: View {
                     .clipShape(Circle())
                     .shadow(radius: 0.1)
                     .aspectRatio(contentMode: .fit)
-                Spacer()
                 VStack(alignment: .leading) {
                     Text(contentViewModel.gitUser.name)
                         .font(.title)
@@ -32,7 +31,6 @@ struct ProfileHeaderView: View {
                 }
                 Spacer()
             }
-            .padding([.top, .leading, .trailing])
             Text(contentViewModel.gitUser.email)
                 .padding([.top, .leading, .trailing])
             HStack {
@@ -40,7 +38,6 @@ struct ProfileHeaderView: View {
                 Text("\(contentViewModel.gitUser.followingCount) \(profileHeaderViewModel.following)")
             }
             .padding([.top, .leading, .trailing])
-            
         }
     }
 }

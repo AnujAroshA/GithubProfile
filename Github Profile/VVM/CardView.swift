@@ -23,19 +23,17 @@ struct CardView: View {
             HStack {
                 Image(uiImage: urlImageModel.image ?? CardView.defaultImage!)
                     .resizable()
-                    .frame(width: 100.0, height: 100.0)
+                    .frame(width: 50.0, height: 50.0)
                     .clipShape(Circle())
                     .shadow(radius: 0.1)
                     .aspectRatio(contentMode: .fit)
-                Spacer()
                 Text(contentViewModel.gitUser.login)
                 Spacer()
             }
             Text("\(cardViewModel.getValueForNameText(pinnedItemNode: pinnedItemNode, topStoriesItemNode: topStoriesItemNode, starRepoItemNode: starRepoItemNode))")
                 .fontWeight(.bold)
-                .padding([.leading, .bottom, .trailing])
             Text("\(cardViewModel.getValueForDescriptionText(pinnedItemNode: pinnedItemNode, topStoriesItemNode: topStoriesItemNode, starRepoItemNode: starRepoItemNode))")
-                .padding([.leading, .bottom, .trailing])
+                .padding([.bottom])
             HStack {
                 Label {
                     Text("\(cardViewModel.getValueForStarCount(pinnedItemNode: pinnedItemNode, topStoriesItemNode: topStoriesItemNode, starRepoItemNode: starRepoItemNode))")
@@ -52,11 +50,12 @@ struct CardView: View {
                 }
                 Spacer()
             }
-            .padding(.all)
         }
-        .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-        .border(Color.gray, width: 1)
-        .cornerRadius(3.0)
+        .padding(.all)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(Color.gray, lineWidth: 2)
+        )
     }
 }
 

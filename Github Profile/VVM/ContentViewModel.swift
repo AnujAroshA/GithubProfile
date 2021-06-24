@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class ContentViewModel: ObservableObject {
     
@@ -13,6 +14,7 @@ class ContentViewModel: ObservableObject {
     let topReposSectionHeader = "Top repositories"
     let starredSectionHeader = "Starred repositories"
     let defaultStringValue = ""
+    let maxCardWidth = UIScreen.main.bounds.size.width * 0.75
     @Published var gitUser = GitUser()
     
     func fetchDataFromGrapQL() {
